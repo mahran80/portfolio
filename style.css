@@ -1,0 +1,56 @@
+/* style.css - shared styles for portfolio */
+:root{
+  --accent:#1166cc;
+  --muted:#6b7280;
+  --bg:#fbfbfd;
+  --card:#ffffff;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg); color:#111;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:0 auto;padding:28px;}
+/* HERO / COVER */
+.hero{
+  display:flex;gap:20px;align-items:center;padding:48px;border-radius:12px;
+  background-image:linear-gradient(rgba(8,18,34,0.45),rgba(8,18,34,0.45)), url("https://drive.google.com/uc?export=view&id=1k7nlotRPi7o1LV2Bkf9b65dT2x7hsAcv");
+  background-size:cover;background-position:center;color:#fff;margin-top:18px;
+  box-shadow: 0 8px 30px rgba(10,20,40,0.08);
+}
+.hero .avatar{width:110px;height:110px;border-radius:12px;overflow:hidden;border:4px solid rgba(255,255,255,0.12)}
+.hero .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .intro h1{margin:0;font-size:28px}
+.hero .intro p{margin:8px 0;color:rgba(255,255,255,0.92)}
+.hero .cta{margin-top:12px;display:flex;gap:10px}
+.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+.btn.secondary{background:transparent;border:2px solid rgba(255,255,255,0.18);color:#fff}
+
+/* SECTIONS */
+.section{margin-top:26px}
+h2{color:var(--accent);margin:0 0 12px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+
+/* card */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 20px rgba(20,30,60,0.06);overflow:hidden;display:flex;flex-direction:column}
+.card .card-img{height:160px;background:#eee;background-size:cover;background-position:center}
+.card .card-body{padding:14px;flex:1;display:flex;flex-direction:column}
+.card h3{margin:0 0 8px}
+.card p{margin:0 0 12px;color:var(--muted);flex:1}
+.links{display:flex;gap:8px}
+
+/* list */
+.dlist{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.dlist li{background:#fff;padding:10px;border-radius:8px;border:1px solid #f0f0f0;color:var(--muted);}
+
+/* footer */
+footer{margin-top:28px;padding:18px 0;border-top:1px solid #eee;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.small{font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:760px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero .avatar{width:90px;height:90px}
+}
