@@ -1,4 +1,4 @@
-/* style.css - shared styles for portfolio */
+/* style.css - shared styles for portfolio (uses local images in /images) */
 :root{
   --accent:#1166cc;
   --muted:#6b7280;
@@ -16,7 +16,7 @@ body{
 /* HERO / COVER */
 .hero{
   display:flex;gap:20px;align-items:center;padding:48px;border-radius:12px;
-  background-image:linear-gradient(rgba(8,18,34,0.45),rgba(8,18,34,0.45)), url("https://drive.google.com/uc?export=view&id=1k7nlotRPi7o1LV2Bkf9b65dT2x7hsAcv");
+  background-image:linear-gradient(rgba(8,18,34,0.45),rgba(8,18,34,0.45)), url("images/quantum.png");
   background-size:cover;background-position:center;color:#fff;margin-top:18px;
   box-shadow: 0 8px 30px rgba(10,20,40,0.08);
 }
