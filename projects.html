@@ -15,8 +15,8 @@
 
     <!-- Online Quiz -->
     <section class="section" id="quiz">
-      <div class="card">
-        <div class="card-img" style="background-image:url('images/quiz.png')"></div>
+      <div class="card js-reveal">
+        <div class="card-img"><img src="images/quiz.png" alt="Online Quiz"></div>
         <div class="card-body">
           <h3>Online Quiz Game</h3>
           <p>Built with Django, Django REST Framework, WebSockets (Daphne), Redis for caching. Cookie-based authentication for sessions and real-time question delivery for multiplayer quizzes.</p>
@@ -30,8 +30,8 @@
 
     <!-- Aya Food -->
     <section class="section" id="aya">
-      <div class="card">
-        <div class="card-img" style="background-image:url('images/aya.png')"></div>
+      <div class="card js-reveal">
+        <div class="card-img"><img src="images/aya.png" alt="Aya Food"></div>
         <div class="card-body">
           <h3>Aya Food (E-commerce)</h3>
           <p>Marketplace for food delivery with seller onboarding, product CRUD, session-based cart, coupons, checkout with email confirmation and PDF invoices. Background tasks via Celery + Redis/RabbitMQ.</p>
@@ -45,8 +45,8 @@
 
     <!-- Hotel Booking -->
     <section class="section" id="hotel">
-      <div class="card">
-        <div class="card-img" style="background-image:url('images/hotel.png')"></div>
+      <div class="card js-reveal">
+        <div class="card-img"><img src="images/hotel.png" alt="Hotel Booking"></div>
         <div class="card-body">
           <h3>Hotel Booking System</h3>
           <p>Comprehensive booking system using Django REST Framework with JWT authentication, room availability validation, advanced filters and user profile management.</p>
@@ -59,8 +59,8 @@
 
     <!-- Quantum Random Password Generator -->
     <section class="section" id="quantum">
-      <div class="card">
-        <div class="card-img" style="background-image:url('images/quantum.png')"></div>
+      <div class="card js-reveal">
+        <div class="card-img"><img src="images/quantumsc.png" alt="Quantum Random Password Generator"></div>
         <div class="card-body">
           <h3>Quantum Random Password Generator</h3>
           <p>Secure authentication tool using quantum random number generation (Qiskit) and a Tkinter GUI for sign-up/login. Emphasis on strong password randomness and desktop usability.</p>
@@ -73,24 +73,88 @@
     </section>
 
     <!-- More projects (list) -->
-    <section class="section" id="more">
+    <!-- <section class="section" id="more">
       <h2>Other projects</h2>
       <ul class="dlist">
         <li><strong>Library Management System</strong> — Django + HTML/CSS/JS. CRUD, auth & role-based access. (<a href="https://github.com/mahran80/LIbirary-managment-System" target="_blank">GitHub</a>)</li>
         <li><strong>Flutter Traveling App</strong> — Flutter/Dart mobile app for trip management. (<a href="https://github.com/mahran80/Fluuter-Traviling-app" target="_blank">GitHub</a>)</li>
         <li><strong>Polynomial Linked List (Java)</strong> — Polynomial data structure with add/subtract/multiply & evaluate. (<a href="https://github.com/mahran80/PolynomialDataLinkedList" target="_blank">GitHub</a>)</li>
       </ul>
-    </section>
+    </section> -->
 
     <footer>
-      <div>
-        <div class="small"><strong>Contact:</strong></div>
-        <div class="small">Email: <a href="mailto:Ahmed.mahran824@gmail.com">Ahmed.mahran824@gmail.com</a></div>
-        <div class="small">Phone: 01141125185</div>
-      </div>
-      <div class="small"><a href="index.html">Home</a> • © Ahmed Mahran</div>
+      <div class="footer-contact">
+        <span class="small"><strong>Contact Me:</strong></span>
+        <div class="footer-icons">
+          <a href="mailto:Ahmed.mahran824@gmail.com" target="_blank" title="Gmail">
+            <img src="images/gmail.png" alt="Gmail" class="icon" />
+          </a>
+          <a href="https://wa.me/201141125185" target="_blank" title="WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp" class="icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/ahmed-mahran-528187264" target="_blank" title="LinkedIn">
+            <img src="images/linkedin.png" alt="LinkedIn" class="icon" />
+          </a>
+          <a href="https://github.com/mahran80" target="_blank" title="GitHub">
+            <img src="images/github.png" alt="GitHub" class="icon" />
+          </a>
+        </div>
+      <div class="small">© Ahmed Mahran</div>
     </footer>
+    <style>
+    .footer-contact {
+      text-align: left;
+      margin-top: 32px;
+    }
+    .footer-icons {
+      margin: 12px 0;
+      display: flex;
+      justify-content:left;
+      gap: 250px;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      vertical-align: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .icon:hover {
+      transform: scale(1.18) rotate(-8deg);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 600px) {
+      .footer-icons { gap: 12px; }
+      .icon { width: 26px; height: 26px; }
+    }
+    </style>
 
   </div>
+
+<script>
+/* Apply same reveal observer for this page */
+document.addEventListener('DOMContentLoaded', function(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      card.style.transform = `translateY(-6px) translateX(${x * 6}px) rotate(${x * 0.5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
+  });
+});
+</script>
+
 </body>
 </html>
