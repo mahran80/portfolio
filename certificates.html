@@ -15,8 +15,8 @@
 
     <section class="section">
       <div class="cards">
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/iti.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/iti.png" alt="ITI Certificate"></div>
           <div class="card-body">
             <h3>Linux Administration (60 hrs)</h3>
             <p class="small">Issuer: Information Technology Institution (ITI) — Jan 2025 - Feb 2025</p>
@@ -26,8 +26,8 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/quantum.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/quantum.png" alt="Qiskit Certificate"></div>
           <div class="card-body">
             <h3>Quantum Computing & Programming (QBronze - Qiskit)</h3>
             <p class="small">Issuer: QWorld / QEgypt — August 2024</p>
@@ -37,8 +37,8 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/latvia.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/latvia.png" alt="Latvia Certificate"></div>
           <div class="card-body">
             <h3>Elements of Quantum Computing and Programming (QCourse 501-2)</h3>
             <p class="small">Issuer: University of Latvia & QWorld — Sep 2024 - Dec 2024</p>
@@ -56,5 +56,20 @@
     </footer>
 
   </div>
+
+<script>
+/* reveal observer */
+document.addEventListener('DOMContentLoaded', function(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
+});
+</script>
 </body>
 </html>
