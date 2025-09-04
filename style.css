@@ -1,31 +1,54 @@
-/* style.css - shared styles for portfolio (uses local images in /images) */
+/* style.css - updated: uses images/canva.png as cover, non-cropping, card animations, image contain */
 :root{
   --accent:#1166cc;
   --muted:#6b7280;
-  --bg:#fbfbfd;
+  --bg:#dddde7;
   --card:#ffffff;
   --radius:10px;
 }
 *{box-sizing:border-box}
 body{
-  margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background:var(--bg); color:#111;
   -webkit-font-smoothing:antialiased;
 }
-.container{max-width:1100px;margin:0 auto;padding:28px;}
+.container{max-width:1;margin: auto;padding:28px;}
 /* HERO / COVER */
-.hero{
-  display:flex;gap:20px;align-items:center;padding:48px;border-radius:12px;
-  background-image:linear-gradient(rgba(8,18,34,0.45),rgba(8,18,34,0.45)), url("images/quantum.png");
-  background-size:cover;background-position:center;color:#fff;margin-top:18px;
+.hero-cover{
+  display:block; gap:20px; align-items:center;
+  border-radius:12px;
+  
+  color:#fff;
+  margin-top:18px;
   box-shadow: 0 8px 30px rgba(10,20,40,0.08);
+  overflow:hidden;
+  padding:0;
 }
-.hero .avatar{width:110px;height:110px;border-radius:12px;overflow:hidden;border:4px solid rgba(255,255,255,0.12)}
-.hero .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.hero .intro h1{margin:0;font-size:28px}
-.hero .intro p{margin:8px 0;color:rgba(255,255,255,0.92)}
-.hero .cta{margin-top:12px;display:flex;gap:10px}
-.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+
+/* using the canva cover without cropping:
+   background-size: contain -> full image shown without cropping
+   but it may leave space; avatar/intro are placed on top using absolute content area */
+.canva{
+  width:100%;
+  height: 450px;
+  display:block;
+  position:relative;
+}
+
+/* content overlay area placed below hero instead of inside */
+
+
+/* small avatar box if needed */
+.avatar{
+  width:110px;height:110px;border-radius:12px;overflow:hidden;border:3px solid rgba(255,255,255,0.12);flex-shrink:0;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* intro text */
+.intro h1{margin:0;font-size:26px;color:#fff}
+.intro p{margin:8px 0;color:rgba(255,255,255,0.92);max-width:720px}
+.cta-row{margin-top:8px; display:flex; gap:10px; flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block}
 .btn.secondary{background:transparent;border:2px solid rgba(255,255,255,0.18);color:#fff}
 
 /* SECTIONS */
@@ -33,9 +56,21 @@ body{
 h2{color:var(--accent);margin:0 0 12px 0}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 
-/* card */
-.card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 20px rgba(20,30,60,0.06);overflow:hidden;display:flex;flex-direction:column}
-.card .card-img{height:160px;background:#eee;background-size:cover;background-position:center}
+/* card with hover lift */
+.card{
+  background:var(--card);border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(20,30,60,0.06);
+  overflow:hidden;display:flex;flex-direction:column;transform:translateY(0);
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+  opacity:0; transform:translateY(12px);
+}
+.card.show{ opacity:1; transform:none; } /* for scroll reveal */
+
+.card:hover{ transform: translateY(-10px); box-shadow:0 18px 40px rgba(20,30,60,0.12); }
+
+/* image container using <img> so we keep full image (contain) */
+.card .card-img{height:180px; background:#fafafa; display:flex; align-items:center; justify-content:center; overflow:hidden}
+.card .card-img img{width:100%;height:100%;object-fit:contain; display:block; padding:8px; background:#fff}
 .card .card-body{padding:14px;flex:1;display:flex;flex-direction:column}
 .card h3{margin:0 0 8px}
 .card p{margin:0 0 12px;color:var(--muted);flex:1}
@@ -50,7 +85,12 @@ footer{margin-top:28px;padding:18px 0;border-top:1px solid #eee;display:flex;jus
 .small{font-size:13px;color:var(--muted)}
 
 /* responsive */
+@media (max-width:920px){
+  .hero { min-height:360px; }
+  .intro p{ max-width:100% }
+}
 @media (max-width:760px){
-  .hero{flex-direction:column;align-items:flex-start}
-  .hero .avatar{width:90px;height:90px}
+  .hero { min-height:380px; }
+  .hero-content{flex-direction:column; align-items:flex-start}
+  .avatar{width:90px;height:90px}
 }
