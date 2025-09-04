@@ -9,26 +9,28 @@
 <body>
   <div class="container">
 
-    <!-- HERO / COVER -->
-    <section class="hero" aria-label="Cover">
-      <div class="avatar">
-        <img src="images/quantum.png" alt="Ahmed Mahran">
-      </div>
-      <div class="intro">
-        <h1>Ahmed Mahran — Software Engineer</h1>
-        <p>Skilled Python / Django Backend Developer. Experienced building scalable backend systems, REST APIs with DRF, real-time features (WebSockets), Docker, Redis & Celery. Quantum computing researcher (Qiskit) and Linux enthusiast.</p>
-        <div class="cta">
+    <!-- HERO / COVER (uses canva.png from images/) -->
+    <!-- <section class="hero" aria-label="Cover"> -->
+      <div class="hero-cover" >
+        <img class="canva" src="images/canva.png" alt="Cover image" />
+        <div class="cta-row">
           <a class="btn" href="projects.html">Projects</a>
           <a class="btn" href="certificates.html">Certificates</a>
           <a class="btn" href="images/CVG.pdf" target="_blank">Download CV</a>
         </div>
       </div>
-    </section>
+      <!-- content row placed below (not overlapping the cover) -->
+    <!-- </section> -->
 
+  
     <!-- ABOUT -->
     <section class="section" id="about">
       <h2>About</h2>
-      <p class="small">Software Engineer specialized in backend development using Django and Django REST Framework. I build secure, efficient APIs and integrate real-time flows. I also research quantum computing and work on system-level tools.</p>
+      <ul class="dlist">
+      <li>
+        <strong>Software Engineer specialized in backend development using Django and Django REST Framework. I focus on building secure, efficient APIs, real-time features, and scalable systems — with supporting services such as Docker, Redis, Celery, and managed databases.</strong>
+      </li>
+      </ul>
     </section>
 
     <!-- EDUCATION -->
@@ -37,7 +39,9 @@
       <ul class="dlist">
         <li>
           <strong>Bachelor of Science — Computer Science, Alexandria University</strong><br>
-          <span class="small">Graduated: June 2025</span>
+          <span class="small">Graduated: June 2025 </span>
+          <br>  
+          <span class="small">GPA: 3.37</span>
         </li>
       </ul>
     </section>
@@ -46,22 +50,52 @@
     <section class="section" id="skills">
       <h2>Skills</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card js-reveal">
           <div class="card-body">
             <h3>Backend & Tools</h3>
-            <p class="small">Django, Django REST Framework, PostgreSQL, JWT, Docker, Redis, Celery, RabbitMQ</p>
+            <ul>
+              <li>Django</li>
+              <li>Django REST Framework</li>
+              <li>ASP.NET</li>
+              <li>PostgreSQL</li>
+              <li>JWT</li>
+              <li>Docker</li>
+              <li>Redis</li>
+              <li>Celery</li>
+              <li>RabbitMQ</li>
+              <li>Linux</li>
+              <li>Networking</li>
+              <li>Operating Systems</li>
+              <li>System Administration</li>
+            </ul>
           </div>
         </div>
-        <div class="card">
+
+        <div class="card js-reveal">
           <div class="card-body">
             <h3>Languages</h3>
-            <p class="small">Python, Java, Dart, JavaScript, HTML, CSS, SQL</p>
+            <ul>
+              <li>Python</li>
+              <li>Java</li>
+              <li>C#</li>
+              <li>PHP</li>
+              <li>Dart</li>
+              <li>JavaScript</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>SQL</li>
+            </ul>
           </div>
         </div>
-        <div class="card">
+
+        <div class="card js-reveal">
           <div class="card-body">
-            <h3>Research & Systems</h3>
-            <p class="small">Qiskit (Quantum), Linux Administration, Networking, Operating Systems</p>
+            <h3>Research</h3>
+            <ul>
+              <li>Quantum computing </li>
+              <li>Quantum algorithms</li>
+              <li>Quantum cryptography</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -71,8 +105,8 @@
     <section class="section" id="projects-preview">
       <h2>Project Highlights</h2>
       <div class="cards">
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/quiz.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/quiz.png" alt="Online Quiz"></div>
           <div class="card-body">
             <h3>Online Quiz Game</h3>
             <p>Real-time multiplayer quiz using Django, DRF, WebSockets and Redis.</p>
@@ -82,17 +116,17 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/aya.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/aya.png" alt="Aya Food"></div>
           <div class="card-body">
             <h3>Aya Food (E-commerce)</h3>
-            <p>Food-delivery marketplace with Celery background tasks, PDF invoices and email confirmations.</p>
+            <p>Food-delivery marketplace with async tasks, PDF invoices and email confirmations.</p>
             <div class="links"><a class="btn" href="projects.html#aya">Details</a></div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-img" style="background-image:url('images/hotel.png')"></div>
+        <div class="card js-reveal">
+          <div class="card-img"><img src="images/hotel.png" alt="Hotel Booking"></div>
           <div class="card-body">
             <h3>Hotel Booking System</h3>
             <p>Booking platform with JWT auth, availability checks and advanced filters (DRF).</p>
@@ -102,17 +136,86 @@
 
       </div>
     </section>
-
     <footer>
-      <div>
-        <div class="small"><strong>Contact:</strong></div>
-        <div class="small">Email: <a href="mailto:Ahmed.mahran824@gmail.com">Ahmed.mahran824@gmail.com</a></div>
-        <div class="small">Phone: 01141125185</div>
-        <div class="small">LinkedIn: <a href="https://www.linkedin.com/in/ahmed-mahran-528187264" target="_blank">profile</a> — GitHub: <a href="https://github.com/mahran80" target="_blank">mahran80</a></div>
-      </div>
+      <div class="footer-contact">
+        <span class="small"><strong>Contact Me:</strong></span>
+        <div class="footer-icons">
+          <a href="mailto:Ahmed.mahran824@gmail.com" target="_blank" title="Gmail">
+            <img src="images/gmail.png" alt="Gmail" class="icon" />
+          </a>
+          <a href="https://wa.me/201141125185" target="_blank" title="WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp" class="icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/ahmed-mahran-528187264" target="_blank" title="LinkedIn">
+            <img src="images/linkedin.png" alt="LinkedIn" class="icon" />
+          </a>
+          <a href="https://github.com/mahran80" target="_blank" title="GitHub">
+            <img src="images/github.png" alt="GitHub" class="icon" />
+          </a>
+        </div>
       <div class="small">© Ahmed Mahran</div>
     </footer>
+  
+    <style>
+    .footer-contact {
+      text-align: left;
+      margin-top: 32px;
+    }
+    .footer-icons {
+      margin: 12px 0;
+      display: flex;
+      justify-content:left;
+      gap: 250px;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      vertical-align: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .icon:hover {
+      transform: scale(1.18) rotate(-8deg);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 600px) {
+      .footer-icons { gap: 12px; }
+      .icon { width: 26px; height: 26px; }
+    }
+    </style>
 
   </div>
+
+<script>
+/* Intersection Observer for reveal-on-scroll */
+document.addEventListener('DOMContentLoaded', function(){
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        // unobserve for performance
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.15});
+
+  document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
+
+  // add hover parallax subtle movement on mousemove (small effect for cards)
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-6px) translateX(${x * 6}px) rotate(${x * 0.5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+});
+</script>
+
 </body>
 </html>
