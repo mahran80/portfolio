@@ -4,25 +4,51 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Ahmed Mahran — Portfolio</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
 </head>
 <body>
   <div class="container">
 
-    <!-- HERO / COVER (uses canva.png from images/) -->
-    <!-- <section class="hero" aria-label="Cover"> -->
-      <div class="hero-cover" >
-        <img class="canva" src="images/canva.png" alt="Cover image" />
-        <div class="cta-row">
+    <!-- HERO -->
+    <div class="hero-cover">
+      <!-- left side -->
+      <div class="hero-left">
+        <img class="profile-pic" src="images/cv2.png" alt="Ahmed Mahran">
+        <h2 id="my-name">&lt;AHMED MAHRAN&gt;</h2>
+        <p id="my-title">Software Engineer</p>
+        
+      </div>
+        
+      <!-- right side -->
+      <div class="hero-right">
+        <h2 id="about-me">&lt;/About Me&gt;</h2>
+        <p>
+          Software Engineer specialized in backend development using Django and Django REST Framework.<br>
+          I build reliable backend systems that power web and mobile apps.<br>
+          I create secure APIs, manage data storage, and add real-time features like live notifications and multiplayer updates.<br>
+          I also help with deployment & maintenance (Docker, databases, caching) and can produce simple front-end pages when needed.
+        </p>
+        <div class="skills-logos">
+          <img src="images/django.png" alt="Django">
+          <img src="images/celery.png" alt="Celery">
+          <img src="images/rabbit.png" alt="RabbitMQ">
+          <img src="images/redia.png" alt="Redis">
+          <img src="images/docker.png" alt="Docker">
+          <img src="images/post.png" alt="PostgreSQL">
+          <img src="images/sql.png" alt="MySQL">
+          <img src="images/redhat.png" alt="Red Hat">
+          <img src="images/flutter.png" alt="Flutter">
+          <img src="images/html5.png" alt="HTML">
+          <img src="images/css.png" alt="CSS">
+          <img src="images/js.png" alt="Node.js">
+        </div>
+      </div>
+    </div>
+    <div class="cta-row">
           <a class="btn" href="projects.html">Projects</a>
           <a class="btn" href="certificates.html">Certificates</a>
           <a class="btn" href="images/CVG.pdf" target="_blank">Download CV</a>
         </div>
-      </div>
-      <!-- content row placed below (not overlapping the cover) -->
-    <!-- </section> -->
-
-  
     <!-- ABOUT -->
     <section class="section" id="about">
       <h2>About</h2>
@@ -92,7 +118,7 @@
           <div class="card-body">
             <h3>Research</h3>
             <ul>
-              <li>Quantum computing </li>
+              <li>Quantum computing</li>
               <li>Quantum algorithms</li>
               <li>Quantum cryptography</li>
             </ul>
@@ -136,6 +162,8 @@
 
       </div>
     </section>
+
+    <!-- FOOTER -->
     <footer>
       <div class="footer-contact">
         <span class="small"><strong>Contact Me:</strong></span>
@@ -156,35 +184,6 @@
       <div class="small">© Ahmed Mahran</div>
     </footer>
   
-    <style>
-    .footer-contact {
-      text-align: left;
-      margin-top: 32px;
-    }
-    .footer-icons {
-      margin: 12px 0;
-      display: flex;
-      justify-content:left;
-      gap: 250px;
-    }
-    .icon {
-      width: 32px;
-      height: 32px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      vertical-align: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .icon:hover {
-      transform: scale(1.18) rotate(-8deg);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    }
-    @media (max-width: 600px) {
-      .footer-icons { gap: 12px; }
-      .icon { width: 26px; height: 26px; }
-    }
-    </style>
-
   </div>
 
 <script>
@@ -194,26 +193,12 @@ document.addEventListener('DOMContentLoaded', function(){
     entries.forEach(entry => {
       if(entry.isIntersecting){
         entry.target.classList.add('show');
-        // unobserve for performance
         observer.unobserve(entry.target);
       }
     });
   }, {threshold: 0.15});
 
   document.querySelectorAll('.js-reveal').forEach(el => observer.observe(el));
-
-  // add hover parallax subtle movement on mousemove (small effect for cards)
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-6px) translateX(${x * 6}px) rotate(${x * 0.5}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
 });
 </script>
 
